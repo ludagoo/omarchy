@@ -261,6 +261,7 @@ Panel {
   }
 
   function activateMullvadRegionCursor() {
+    if (mullvadRegionIndex < 0) return
     var region = selectedMullvadRegion()
     if (region) chooseExitNode(region)
   }
