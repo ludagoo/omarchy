@@ -1097,6 +1097,8 @@ Panel {
       anchors.fill: parent
       hoverEnabled: true
       cursorShape: Qt.PointingHandCursor
+      // Covers CursorSurface's own hover area, which then never sees the pointer.
+      onContainsMouseChanged: copyChoice.hovered(containsMouse)
       onClicked: copyChoice.chosen()
     }
 
