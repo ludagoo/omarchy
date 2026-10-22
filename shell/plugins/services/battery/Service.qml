@@ -112,7 +112,9 @@ Item {
     stdout: StdioCollector {
       waitForEnd: true
       onStreamFinished: {
-        root.kernelPercentage = BatteryModel.kernelPercentage(text)
+        var reading = BatteryModel.kernelReading(text, root.kernelPercentage)
+        root.kernelPercentage = reading.level
+        if (reading.retry) root.kernelReadCapacity = -1
         root.checkBattery()
       }
     }
